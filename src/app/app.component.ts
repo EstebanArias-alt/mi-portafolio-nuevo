@@ -7,7 +7,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
-
+import { NavbarComponent } from './components/navbar/navbar.component';
 // Importa la nueva directiva de animación
 import { ScrollFadeDirective } from './directives/scroll-fade.directive'; 
 
@@ -18,6 +18,7 @@ import { ScrollFadeDirective } from './directives/scroll-fade.directive';
     CommonModule, 
     // Componentes del portafolio:
     HeroComponent,
+    NavbarComponent,
     AboutComponent,
     ProjectsComponent,
     ContactComponent,

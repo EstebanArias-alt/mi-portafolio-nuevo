@@ -1,39 +1,90 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // <-- ReactiveFormsModule
-import { CommonModule } from '@angular/common'; // <-- CommonModule
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  standalone: true, // <-- Aseguramos que es standalone
-  imports: [CommonModule, ReactiveFormsModule] // <-- Incluimos ambos
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule
+  ]
 })
 export class ContactComponent implements OnInit {
-  
-  // ... (Tu lógica existente aquí)
-  
+
   contactForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
+
     this.contactForm = this.fb.group({
-      discordName: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      service: ['', [Validators.required]], // Selector de servicio
-      message: ['', [Validators.required, Validators.minLength(10)]],
+
+      discordName: [
+        '',
+        Validators.required
+      ],
+
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ],
+
+      message: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10)
+        ]
+      ]
+
     });
+
   }
 
   ngOnInit(): void {}
 
-  onSubmit() {
-    if (this.contactForm.valid) {
-      console.log('Formulario Válido. Datos:', this.contactForm.value);
-      alert('¡Mensaje enviado con éxito! (Mira la consola para ver los datos)');
-      this.contactForm.reset();
-    } else {
-      console.log('Formulario Inválido.');
-      alert('Por favor, completa todos los campos requeridos correctamente.');
+  onSubmit(): void {
+
+    if (this.contactForm.invalid) {
+      alert('Por favor, completá todos los campos correctamente.');
+      return;
     }
+
+    const {
+      discordName,
+      email,
+      message
+    } = this.contactForm.value;
+
+    const whatsappNumber = '5493884605421';
+
+    const text = `
+Hola, soy ${discordName}.
+
+Email: ${email}
+
+Mensaje:
+${message}
+    `.trim();
+
+    const whatsappUrl =
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(
+      whatsappUrl,
+      '_blank'
+    );
+
+    this.contactForm.reset();
   }
+
 }

@@ -1,32 +1,204 @@
-<section id="contact" class="py-24">
-  <h2 class="text-3xl font-bold text-center text-white sm:text-4xl mb-4">
-    ¡Contáctame!
-  </h2>
-  <p class="text-center text-lg text-gray-400 mb-12 max-w-xl mx-auto">
-    ¿Tienes un proyecto en mente? Envíame un mensaje.
-  </p>
+<section id="contact" class="contact-section py-24">
 
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="max-w-xl mx-auto space-y-6">
-    
-    <input type="text" formControlName="discordName" placeholder="Tu Nombre o Discord"
-           class="block w-full rounded-lg py-2.5 px-4 bg-gray-800 text-white border-none 
-                  ring-1 ring-gray-700 focus:ring-2 focus:ring-blue-500">
-    
-    <input type="email" formControlName="email" placeholder="tu@email.com"
-           class="block w-full rounded-lg py-2.5 px-4 bg-gray-800 text-white border-none 
-                  ring-1 ring-gray-700 focus:ring-2 focus:ring-blue-500">
+  <!-- Encabezado -->
+  <div class="contact-header">
 
-    <textarea formControlName="message" rows="4" placeholder="Cuéntame sobre tu proyecto..."
-              class="block w-full rounded-lg py-2.5 px-4 bg-gray-800 text-white border-none 
-                     ring-1 ring-gray-700 focus:ring-2 focus:ring-blue-500"></textarea>
-    
-    <div class="pt-4 text-center">
-      <button type="submit" [disabled]="contactForm.invalid"
-              class="rounded-lg bg-blue-600 px-8 py-3 text-lg font-semibold text-white 
-                     shadow-xl hover:bg-blue-500 disabled:bg-gray-700 transition-colors">
-        Enviar Mensaje
-      </button>
+    <span class="contact-label">
+      CONTACTO
+    </span>
+
+    <h2 class="contact-title">
+      ¿Hablamos de tu próximo proyecto?
+    </h2>
+
+    <p class="contact-description">
+      Si tenés una idea, una página web, un sistema o necesitás ayuda con un proyecto,
+      escribime y contame qué necesitás.
+    </p>
+
+  </div>
+
+
+  <!-- Contenedor principal -->
+  <div class="contact-container">
+
+    <!-- Lado izquierdo -->
+    <div class="contact-info">
+
+      <span class="contact-info-small">
+        TRABAJEMOS JUNTOS
+      </span>
+
+      <h3>
+        Convertí tu idea en algo real
+      </h3>
+
+      <p>
+        Estoy disponible para desarrollar páginas web, sistemas,
+        automatizaciones y soluciones personalizadas.
+      </p>
+
+
+      <div class="contact-options">
+
+        <div class="contact-option">
+
+          <div class="contact-option-icon">
+            ✉
+          </div>
+
+          <div>
+            <span class="contact-option-label">
+              Email
+            </span>
+
+            <strong>
+              Contactame directamente
+            </strong>
+          </div>
+
+        </div>
+
+
+        <div class="contact-option">
+
+          <div class="contact-option-icon">
+            💻
+          </div>
+
+          <div>
+            <span class="contact-option-label">
+              Desarrollo
+            </span>
+
+            <strong>
+              Webs, sistemas y automatizaciones
+            </strong>
+          </div>
+
+        </div>
+
+
+        <div class="contact-option">
+
+          <div class="contact-option-icon">
+            ⚡
+          </div>
+
+          <div>
+            <span class="contact-option-label">
+              Respuesta
+            </span>
+
+            <strong>
+              Contame tu proyecto
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
-    
-  </form>
+
+
+    <!-- Formulario -->
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="contact-form"
+    >
+
+      <!-- Nombre -->
+      <div class="form-group">
+
+        <label for="discordName">
+          Nombre o Discord
+        </label>
+
+        <div class="input-wrapper">
+
+          <span class="input-icon">
+            👤
+          </span>
+
+          <input
+            id="discordName"
+            type="text"
+            formControlName="discordName"
+            placeholder="Tu nombre o Discord"
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- Email -->
+      <div class="form-group">
+
+        <label for="email">
+          Email
+        </label>
+
+        <div class="input-wrapper">
+
+          <span class="input-icon">
+            ✉
+          </span>
+
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="tu@email.com"
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- Mensaje -->
+      <div class="form-group">
+
+        <label for="message">
+          Mensaje
+        </label>
+
+        <div class="textarea-wrapper">
+
+          <textarea
+            id="message"
+            formControlName="message"
+            rows="5"
+            placeholder="Contame sobre tu proyecto..."
+          ></textarea>
+
+        </div>
+
+      </div>
+
+
+      <!-- Botón -->
+      <button
+        type="submit"
+        [disabled]="contactForm.invalid"
+        class="contact-button"
+      >
+
+        <span>
+          Enviar mensaje
+        </span>
+
+        <span class="contact-button-arrow">
+          →
+        </span>
+
+      </button>
+
+    </form>
+
+  </div>
+
 </section>

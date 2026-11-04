@@ -4,22 +4,40 @@ import { Injectable, NgZone } from '@angular/core';
   providedIn: 'root',
 })
 export class ScrollObserverService {
-  constructor(private ngZone: NgZone) {}
 
-  observe(target: Element) {
+  constructor(
+    private ngZone: NgZone
+  ) {}
+
+  observe(target: Element): void {
+
     const observer = new IntersectionObserver(
       (entries) => {
-        this.ngZone.run(() => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            this.ngZone.run(() => {
               entry.target.classList.add('show');
-              observer.unobserve(entry.target); // Detenemos la observación
-            }
-          });
+            });
+
+            observer.unobserve(
+              entry.target
+            );
+          }
+
         });
+
       },
-      { threshold: 0.1 } 
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      }
     );
+
     observer.observe(target);
+
   }
+
 }

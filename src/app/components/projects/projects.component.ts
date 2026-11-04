@@ -35,12 +35,12 @@ export class ProjectsComponent implements OnInit {
       urlSitio: 'https://www.doserewards.com/',
       urlImagen: 'https://via.placeholder.com/600x380.png?text=DoseRewards',
       tecnologias: ['Node.js', 'MongoDB',],
-    }, {
-      titulo: 'PAGINA CATALEYA ',
-      urlSitio: 'https://estebanarias-alt.github.io/cataleya-estetica/',
-      urlImagen: 'https://via.placeholder.com/600x380.png?text=DoseRewards',
-      tecnologias: ['HTML', 'CSS','Astro', 'JavaScript','twilindcss'],
-    },
+    },{
+  titulo: 'Página Cataleya',
+  urlSitio: 'https://estebanarias-alt.github.io/cataleya-estetica/',
+  urlImagen: '/images/projects/cataleya.png',
+  tecnologias: ['HTML', 'CSS', 'Astro', 'JavaScript', 'Tailwind CSS'],
+}
   ];
 
   constructor() {}
